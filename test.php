@@ -11,19 +11,19 @@ echo "WordPress chargé\n";
 // Test les classes
 try {
     require_once plugin_dir_path(__FILE__) . 'includes/class-db.php';
-    echo "✓ class-db.php chargé\n";
+    echo "class-db.php chargé\n";
     
     require_once plugin_dir_path(__FILE__) . 'includes/class-auth.php';
-    echo "✓ class-auth.php chargé\n";
+    echo "class-auth.php chargé\n";
     
     require_once plugin_dir_path(__FILE__) . 'includes/class-ajax.php';
-    echo "✓ class-ajax.php chargé\n";
+    echo "class-ajax.php chargé\n";
     
     $db = new UserConnexionDB();
-    echo "✓ UserConnexionDB instancié\n";
+    echo "UserConnexionDB instancié\n";
     
     $auth = new UserConnexionAuth();
-    echo "✓ UserConnexionAuth instancié\n";
+    echo "UserConnexionAuth instancié\n";
     
     echo "\nTout semble OK !\n";
 } catch (Exception $e) {
