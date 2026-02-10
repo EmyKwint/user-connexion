@@ -10,7 +10,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+// Inclure les classes nécessaires
 require_once plugin_dir_path(__FILE__) . 'includes/class-db.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-auth.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-ajax.php';

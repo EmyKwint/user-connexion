@@ -7,7 +7,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+//Classe de gestion de la base de données pour le plugin User Connexion
 class UserConnexionDB
 {
     public $table_name;
@@ -17,7 +17,7 @@ class UserConnexionDB
         global $wpdb;
         $this->table_name = $wpdb->prefix . 'user_connexion';
     }
-
+    //créer la table dans la base de données
     public function createTable()
     {
         global $wpdb;

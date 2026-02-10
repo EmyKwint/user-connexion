@@ -6,7 +6,7 @@ let isBtnActive = false;
 // Test AJAX Debug au chargement
 if (typeof user_connexion !== 'undefined') {
     console.log('user_connexion loaded:', user_connexion);
-    
+    // Test de l'endpoint de debug
     fetch(user_connexion.ajax_url, {
         method: 'POST',
         headers: {
@@ -26,7 +26,7 @@ if (typeof user_connexion !== 'undefined') {
 } else {
     console.error('user_connexion non défini - check wp_localize_script');
 }
-
+// Gestion du clic sur le bouton de connexion
 if (userBtn) {
     userBtn.addEventListener('click', (e) => {
         if (!userConnect) {
@@ -54,7 +54,7 @@ const toggleRegisterLink = document.querySelector('#toggle-register');
 const toggleLoginLink = document.querySelector('#toggle-login');
 const loginForm = document.querySelector('#user-connexion-form');
 const registerForm = document.querySelector('#user-inscription-form');
-
+// Afficher le formulaire de connexion et masquer celui d'inscription
 if (toggleRegisterLink) {
     toggleRegisterLink.addEventListener('click', (e) => {
         e.preventDefault();
@@ -62,7 +62,7 @@ if (toggleRegisterLink) {
         registerForm.style.display = 'flex';
     });
 }
-
+// Afficher le formulaire de connexion et masquer celui d'inscription
 if (toggleLoginLink) {
     toggleLoginLink.addEventListener('click', (e) => {
         e.preventDefault();
@@ -87,7 +87,7 @@ if (loginForm) {
             messageDiv.innerHTML = '<p style="color: red;">Variable user_connexion manquante.</p>';
             return;
         }
-
+        // Afficher les données envoyées
         console.log('Données AJAX:', {
             action: 'user_connexion_login',
             nonce: user_connexion.nonce,
@@ -213,7 +213,7 @@ function handleLogout() {
         console.error('Variable user_connexion non trouvée.');
         return;
     }
-
+    // Envoyer la requête AJAX
     fetch(user_connexion.ajax_url, {
         method: 'POST',
         headers: {

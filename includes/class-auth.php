@@ -7,7 +7,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+//Classe de gestion de l'authentification pour le plugin User Connexion
 class UserConnexionAuth
 {
     private $db;
@@ -16,7 +16,7 @@ class UserConnexionAuth
     {
         $this->db = new UserConnexionDB();
     }
-
+    // Enregistrer un nouvel utilisateur
     public function register($mail, $password, $name = '', $lastname = '')
     {
         global $wpdb;
@@ -46,7 +46,7 @@ class UserConnexionAuth
 
         return true;
     }
-
+    // Connexion utilisateur
     public function login($mail, $password)
     {
         global $wpdb;
@@ -77,13 +77,13 @@ class UserConnexionAuth
 
         return true;
     }
-
+    // Déconnexion utilisateur
     public function logout()
     {
         session_unset();
         session_destroy();
     }
-
+    // Vérifier si l'utilisateur est connecté
     public function isLoggedIn()
     {
         return isset($_SESSION['user_id']);

@@ -7,7 +7,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
+//Classe de gestion des requêtes AJAX pour le plugin User Connexion
 class UserConnexionAJAX
 {
     private $auth;
@@ -24,17 +24,18 @@ class UserConnexionAJAX
         add_action('wp_ajax_nopriv_user_connexion_test', array($this, 'handle_test'));
         add_action('wp_ajax_user_connexion_test', array($this, 'handle_test'));
         
-        // Hooks AJAX
+        // Hook AJAX
         add_action('wp_ajax_nopriv_user_connexion_login', array($this, 'handle_login'));
         add_action('wp_ajax_user_connexion_login', array($this, 'handle_login'));
         
+        // Hook AJAX pour l'inscription
         add_action('wp_ajax_nopriv_user_connexion_register', array($this, 'handle_register'));
         add_action('wp_ajax_user_connexion_register', array($this, 'handle_register'));
-
+        // Hook AJAX pour la déconnexion
         add_action('wp_ajax_nopriv_user_connexion_logout', array($this, 'handle_logout'));
         add_action('wp_ajax_user_connexion_logout', array($this, 'handle_logout'));
     }
-
+    // Méthode de debug pour vérifier que les requêtes AJAX fonctionnent
     public function handle_debug()
     {
         header('Content-Type: text/plain; charset=utf-8');
@@ -43,12 +44,12 @@ class UserConnexionAJAX
         echo "Auth loaded: " . (isset($this->auth) ? 'YES' : 'NO') . "\n";
         die;
     }
-
+    // Méthode de test pour vérifier que les requêtes AJAX fonctionnent
     public function handle_test()
     {
         wp_send_json_success(array('message' => 'AJAX fonctionne !'));
     }
-
+    // Méthode de gestion de la connexion AJAX
     public function handle_login()
     {
         header('Content-Type: application/json');
@@ -76,11 +77,11 @@ class UserConnexionAJAX
             wp_send_json_error(array('message' => $result->get_error_message()));
             die;
         }
-
+        // Connexion réussie
         wp_send_json_success(array('message' => 'Connexion réussie !'));
         die;
     }
-
+    // Méthode de gestion de l'inscription AJAX
     public function handle_register()
     {
         header('Content-Type: application/json');
@@ -110,11 +111,11 @@ class UserConnexionAJAX
             wp_send_json_error(array('message' => $result->get_error_message()));
             die;
         }
-
+        // Inscription réussie
         wp_send_json_success(array('message' => 'Inscription réussie ! Vous pouvez maintenant vous connecter.'));
         die;
     }
-
+    // Méthode de gestion de la déconnexion AJAX
     public function handle_logout()
     {
         header('Content-Type: application/json');
