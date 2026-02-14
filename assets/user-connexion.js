@@ -125,7 +125,7 @@ if (loginForm) {
                         // Sécurité au cas où l'attribut serait manquant
                         location.reload();
                     }
-                }, 1000);
+                }, 500);
             } else {
                 messageDiv.innerHTML = '<p style="color: red;">' + data.data.message + '</p>';
             }
@@ -181,12 +181,12 @@ if (registerForm) {
             if (data.success) {
                 messageDiv.innerHTML = '<p style="color: green;">' + data.data.message + '</p>';
                 registerForm.reset();
-                // Rediriger vers la connexion après 2s
+                // Rediriger vers la connexion 
                 setTimeout(() => {
                     loginForm.style.display = 'flex';
                     registerForm.style.display = 'none';
                     messageDiv.innerHTML = '';
-                }, 2000);
+                }, 500);
             } else {
                 messageDiv.innerHTML = '<p style="color: red;">' + data.data.message + '</p>';
             }
